@@ -17,6 +17,8 @@ Plugin 'chun-yang/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'Ma233/Mark--Karkat'
 Plugin 'shougo/deoplete.nvim'
+Plugin 'roxma/nvim-yarp'          " required by shougo/deoplete.nvim
+Plugin 'roxma/vim-hug-neovim-rpc' " required by shougo/deoplete.nvim
 call vundle#end()
 
 
@@ -28,19 +30,19 @@ syntax on
 filetype plugin indent on
 
 colorscheme ron
-set history=2000                " how many lines of history VIM has to remember
-set autoread                    " auto reload when a file is changed from the outside
-set shortmess=atI               " make messages shorter. see (:help: shortmess)
-set magic                       " turn magic on for regular expressions
-set nobackup                    " do not keep a backup file
-set noswapfile                  " do not keep a backup file
-set timeoutlen=500              " time out on mapping after 0.5 seconds
+set history=2000                  " how many lines of history VIM has to remember
+set autoread                      " auto reload when a file is changed from the outside
+set shortmess=atI                 " make messages shorter. see (:help: shortmess)
+set magic                         " turn magic on for regular expressions
+set nobackup                      " do not keep a backup file
+set noswapfile                    " do not keep a backup file
+set timeoutlen=500                " time out on mapping after 0.5 seconds
 
 
 " no annoying sound on errors
-set novisualbell                " turn off visual bell
-set noerrorbells                " don't beep
-set visualbell t_vb=            " turn off error beep/flash
+set novisualbell                  " turn off visual bell
+set noerrorbells                  " don't beep
+set visualbell t_vb=              " turn off error beep/flash
 
 
 " location cursor style
@@ -49,47 +51,47 @@ set cursorline
 
 
 " movement
-set scrolloff=7                 " keep 7 lines when scrolling
+set scrolloff=7                   " keep 7 lines when scrolling
 
 
 " show
-set ruler                       " show the current row and column
-set number                      " show line numbers
-set showcmd                     " display incomplete commands
-set matchtime=1                 " seconds to show the matching parenthesis
+set ruler                         " show the current row and column
+set number                        " show line numbers
+set showcmd                       " display incomplete commands
+set matchtime=1                   " seconds to show the matching parenthesis
 
 
 " search
-set hlsearch                    " highlight searches
-set incsearch                   " do incremental searching, search as you type
-set ignorecase                  " ignore case when searching
-set smartcase                   " no ignorecase if uppercase char present
+set hlsearch                      " highlight searches
+set incsearch                     " do incremental searching, search as you type
+set ignorecase                    " ignore case when searching
+set smartcase                     " no ignorecase if uppercase char present
 
 
 " encoding
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
 set termencoding=utf-8
-set ffs=unix,dos,mac            " use Unix as the standard file type
-set formatoptions+=m            " Asia text adaptation
-set formatoptions+=B            " Asia text adaptation
+set ffs=unix,dos,mac              " use Unix as the standard file type
+set formatoptions+=m              " Asia text adaptation
+set formatoptions+=B              " Asia text adaptation
 
 
 " complete
 set completeopt=longest,menu
-set wildmenu                    " show a navigable menu for tab completion
+set wildmenu                      " show a navigable menu for tab completion
 set wildmode=longest,list,full
 set wildignore=*.o,*~,*.pyc
 
 
 " status line
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-set laststatus=2   " Always show the status line - use 2 lines for the status bar
+set laststatus=2                  " always show the status line - use 2 lines for the status bar
 
 
 " others
-set backspace=indent,eol,start  " make backspace key act the way it should
-set whichwrap+=<,>,h,l          " let backspace, h and l keys work across lines
+set backspace=indent,eol,start    " make backspace key act the way it should
+set whichwrap+=<,>,h,l            " let backspace, h and l keys work across lines
 
 
 " ======================= specific file type ======================
@@ -102,8 +104,8 @@ set softtabstop=4
 
 " enhanced indent configs
 set autoindent smartindent
-set shiftwidth=4                " spaces for indent
-set shiftround                  " count your spaces while indent by '<' or '>'
+set shiftwidth=4                  " spaces for indent
+set shiftround                    " count your spaces while indent by '<' or '>'
 
 if has("autocmd")
     autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css setlocal tabstop=2 softtabstop=2 shiftwidth=2
