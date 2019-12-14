@@ -221,6 +221,12 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_python_mypy_options='--ignore-missing-imports'
 
+" deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('sources', {
+\   '_': ['ale'],
+\})
+
 " ack.vim
 nmap <C-f> :Ack!<space>
 vmap <C-f> y:Ack!<space><C-r>0
