@@ -16,9 +16,6 @@ Plugin 'dense-analysis/ale'
 Plugin 'chun-yang/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'Ma233/Mark--Karkat'
-Plugin 'shougo/deoplete.nvim'
-Plugin 'roxma/nvim-yarp'          " required by shougo/deoplete.nvim
-Plugin 'roxma/vim-hug-neovim-rpc' " required by shougo/deoplete.nvim
 call vundle#end()
 
 
@@ -108,7 +105,7 @@ set shiftwidth=4                  " spaces for indent
 set shiftround                    " count your spaces while indent by '<' or '>'
 
 if has("autocmd")
-    autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+    autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
     autocmd FileType nginx setlocal iskeyword-=:
 
     autocmd BufRead,BufNewFile *.conf set filetype=conf
@@ -220,12 +217,6 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:ale_python_mypy_options='--ignore-missing-imports'
-
-" deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('sources', {
-\   '_': ['ale'],
-\})
 
 " ack.vim
 nmap <C-f> :Ack!<space>
