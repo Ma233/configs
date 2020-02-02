@@ -221,6 +221,9 @@ let g:ale_python_mypy_options='--ignore-missing-imports'
 " ack.vim
 nmap <C-f> :Ack!<space>
 vmap <C-f> y:Ack!<space><C-r>0
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 
 " ctrlp.vim
 let g:ctrlp_max_height = 15
