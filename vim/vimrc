@@ -111,16 +111,6 @@ autocmd FileType nginx setlocal iskeyword-=:
 autocmd BufRead,BufNewFile *.conf set filetype=conf
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
-autocmd BufNewFile *.sh,*.py,*.html exec ":call AutoSetFileHead()"
-function! AutoSetFileHead()
-    " .sh
-    if &filetype == 'sh'
-        call setline(1, "\#!/bin/bash")
-        call append(1, "set -ex")
-        normal Go
-    endif
-endfunc
-
 
 " ========================== key mapping ==========================
 
@@ -156,13 +146,6 @@ nnoremap ` '
 " ======================== personal config ========================
 " =================================================================
 
-" return to last edit position when opening files
-" if this not work, make sure .viminfo is writable for you
-autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exec "normal g`\"" |
-    \ endif
-
 " search selected text
 vnoremap * y/\<<C-r>0\><CR>
 
@@ -192,9 +175,6 @@ cmap w!! w !sudo tee >/dev/null %
 " =================================================================
 " ======================== plugin customize =======================
 " =================================================================
-
-" vim-pyenv
-autocmd VimEnter * PyenvActivate
 
 " ale
 let g:ale_echo_msg_error_str = 'ERROR'
@@ -227,13 +207,6 @@ nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
 
-" ctrlp.vim auto open
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#vim#files(getcwd()) | endif
-
-" vim-fugitive
-autocmd QuickFixCmdPost *grep* cwindow
-
 " auto-pairs
 let g:AutoPairsFlyMode = 0
 let g:AutoPairsShortcutFastWrap = '<C-e>'
@@ -243,3 +216,42 @@ nmap - <leader>*
 nmap = <leader>#
 " default color Yellow conflicted with search mark
 highlight def MarkWord3 ctermbg=White ctermfg=Black guibg=#FFDB72 guifg=Black
+
+
+" =================================================================
+" ============================ augroup ============================
+" =================================================================
+
+function! AutoSetFileHead()
+    " .sh
+    if &filetype == 'sh'
+        call setline(1, "\#!/bin/bash")
+        call append(1, "set -ex")
+        normal Go
+    endif
+endfunc
+
+augroup myag
+    autocmd!
+
+    " vim-pyenv
+    autocmd VimEnter * PyenvActivate
+
+    " fzf auto open
+    autocmd StdinReadPre * let s:std_in=1
+    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute("FZF") | endif
+
+    " auto set file head
+    autocmd BufNewFile *.sh exec ":call AutoSetFileHead()"
+
+    " return to last edit position when opening files
+    " if this not work, make sure .viminfo is writable for you
+    autocmd BufReadPost *
+        \ if line("'\"") > 0 && line("'\"") <= line("$") |
+        \   exec "normal g`\"" |
+        \ endif
+
+    " vim-fugitive
+    autocmd QuickFixCmdPost *grep* cwindow
+
+augroup END
