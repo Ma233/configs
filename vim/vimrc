@@ -203,6 +203,7 @@ if executable('ag')
 endif
 
 " fzf.vim
+let g:fzf_layout = { 'down': '~10%' }
 nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
