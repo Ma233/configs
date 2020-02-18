@@ -10,8 +10,8 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'lambdalisue/vim-pyenv'
 Plugin 'tpope/vim-fugitive'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'mileszs/ack.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'chun-yang/auto-pairs'
@@ -105,23 +105,21 @@ set autoindent smartindent
 set shiftwidth=4                  " spaces for indent
 set shiftround                    " count your spaces while indent by '<' or '>'
 
-if has("autocmd")
-    autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
-    autocmd FileType nginx setlocal iskeyword-=:
+autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType nginx setlocal iskeyword-=:
 
-    autocmd BufRead,BufNewFile *.conf set filetype=conf
-    autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
+autocmd BufRead,BufNewFile *.conf set filetype=conf
+autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
-    autocmd BufNewFile *.sh,*.py,*.html exec ":call AutoSetFileHead()"
-    function! AutoSetFileHead()
-        " .sh
-        if &filetype == 'sh'
-            call setline(1, "\#!/bin/bash")
-            call append(1, "set -ex")
-            normal Go
-        endif
-    endfunc
-endif
+autocmd BufNewFile *.sh,*.py,*.html exec ":call AutoSetFileHead()"
+function! AutoSetFileHead()
+    " .sh
+    if &filetype == 'sh'
+        call setline(1, "\#!/bin/bash")
+        call append(1, "set -ex")
+        normal Go
+    endif
+endfunc
 
 
 " ========================== key mapping ==========================
@@ -160,12 +158,10 @@ nnoremap ` '
 
 " return to last edit position when opening files
 " if this not work, make sure .viminfo is writable for you
-if has("autocmd")
-  autocmd BufReadPost *
-      \ if line("'\"") > 0 && line("'\"") <= line("$") |
-      \   exe "normal g`\"" |
-      \ endif
-endif
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exec "normal g`\"" |
+    \ endif
 
 " search selected text
 vnoremap * y/\<<C-r>0\><CR>
@@ -226,16 +222,14 @@ if executable('ag')
     let g:ackprg = 'ag --vimgrep'
 endif
 
-" ctrlp.vim
-let g:ctrlp_max_height = 15
-nmap <C-o> :CtrlP<space>
+" fzf.vim
+nnoremap <C-o> :Files<space>
+nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
 
 " ctrlp.vim auto open
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | CtrlPCurFile | endif
-" ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | call fzf#vim#files(getcwd()) | endif
 
 " vim-fugitive
 autocmd QuickFixCmdPost *grep* cwindow
