@@ -152,8 +152,8 @@ vnoremap * y/\<<C-r>0\><CR>
 " copy by gvim
 vnoremap <C-c> "+y
 
-" jump by W
-nmap W <C-w>w
+" easier way to jump between window
+nmap <C-w> <C-w>w
 
 " simple mark by M
 nnoremap M mb
@@ -203,7 +203,7 @@ if executable('ag')
 endif
 
 " fzf.vim
-let g:fzf_layout = { 'down': '~10%' }
+let g:fzf_layout = { 'down': '~15%' }
 nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
@@ -239,8 +239,9 @@ augroup myag
     autocmd VimEnter * PyenvActivate
 
     " fzf auto open
-    autocmd StdinReadPre * let s:std_in=1
-    autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute("FZF") | endif
+    " TODO: fix filetype lost after execute FZF as expr in autocmd
+    " autocmd StdinReadPre * let s:std_in=1
+    " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute("FZF") | endif
 
     " auto set file head
     autocmd BufNewFile *.sh exec ":call AutoSetFileHead()"
