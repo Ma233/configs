@@ -131,6 +131,10 @@ nmap tn :tabnext<CR>
 nmap tp :tabprevious<CR>
 nmap to :tabnew<space>
 
+" easy buffer
+nmap <C-l> :bnext<CR>
+nmap <C-h> :bprevious<CR>
+
 " make Y behave like other capitals
 nmap Y y$
 
