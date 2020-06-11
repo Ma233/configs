@@ -172,7 +172,11 @@ nmap S <leader>
 " fix highlight with long text
 nmap <F12> :syntax sync minlines=5000<CR>
 
+" copy full file path to register
+nmap <F11> :let @" = expand("%")<CR>
+
 " save with sudo permission
+cmap ww noautocmd w
 cmap w!! w !sudo tee >/dev/null %
 
 
