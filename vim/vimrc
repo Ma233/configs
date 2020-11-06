@@ -17,6 +17,8 @@ Plugin 'dense-analysis/ale'
 Plugin 'chun-yang/auto-pairs'
 Plugin 'tpope/vim-surround'
 Plugin 'Ma233/Mark--Karkat'
+Plugin 'tpope/vim-abolish'
+Plugin 'lifepillar/pgsql.vim'
 call vundle#end()
 
 
@@ -194,11 +196,13 @@ let g:ale_linters = {
 \   'python': ['mypy', 'flake8'],
 \   'javascript': ['eslint'],
 \   'rust': ['rls'],
+\   'go': ['gofmt', 'golint', 'govet'],
 \}
 let g:ale_fixers = {
 \   '*':['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black'],
-\   'rust': ['rustfmt']
+\   'rust': ['rustfmt'],
+\   'go': ['gofmt', 'goimports'],
 \}
 let g:ale_fix_on_save = 1
 let g:ale_python_mypy_options='--ignore-missing-imports'
