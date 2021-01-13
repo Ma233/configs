@@ -110,6 +110,7 @@ set shiftround                    " count your spaces while indent by '<' or '>'
 
 autocmd FileType ruby,php,coffee,javascript,typescript,html,htmldjango,xhtml,haml,sass,scss,css,yaml setlocal tabstop=2 softtabstop=2 shiftwidth=2
 autocmd FileType nginx setlocal iskeyword-=:
+autocmd FileType yaml setlocal nowrap
 
 autocmd BufRead,BufNewFile *.conf set filetype=conf
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
