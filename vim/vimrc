@@ -20,6 +20,7 @@ Plugin 'Ma233/Mark--Karkat'
 Plugin 'tpope/vim-abolish'
 Plugin 'lifepillar/pgsql.vim'
 Plugin 'towolf/vim-helm'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 
 
