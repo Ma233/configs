@@ -21,6 +21,8 @@ Plugin 'tpope/vim-abolish'
 Plugin 'lifepillar/pgsql.vim'
 Plugin 'towolf/vim-helm'
 Plugin 'mustache/vim-mustache-handlebars'
+Plugin 'cespare/vim-toml'
+Plugin 'chemzqm/wxapp.vim'
 call vundle#end()
 
 
@@ -204,6 +206,10 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*':['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black'],
+\   'html': ['prettier'],
+\   'css': ['prettier'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
 \   'go': ['gofmt', 'goimports'],
 \}
