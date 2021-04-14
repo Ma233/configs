@@ -206,8 +206,11 @@ let g:ale_linters = {
 let g:ale_fixers = {
 \   '*':['remove_trailing_lines', 'trim_whitespace'],
 \   'python': ['black'],
+\   'json': ['prettier'],
 \   'html': ['prettier'],
+\   'wxml': ['prettier'],
 \   'css': ['prettier'],
+\   'wxss': ['prettier'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'rust': ['rustfmt'],
