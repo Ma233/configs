@@ -1,29 +1,25 @@
 " =================================================================
-" ===================== initialize with vundle ====================
+" ==================== initialize with vim-plug ===================
 " =================================================================
 
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'lambdalisue/vim-pyenv'
-Plugin 'tpope/vim-fugitive'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'dense-analysis/ale'
-Plugin 'chun-yang/auto-pairs'
-Plugin 'tpope/vim-surround'
-Plugin 'Ma233/Mark--Karkat'
-Plugin 'tpope/vim-abolish'
-Plugin 'lifepillar/pgsql.vim'
-Plugin 'towolf/vim-helm'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'cespare/vim-toml'
-Plugin 'chemzqm/wxapp.vim'
-call vundle#end()
+call plug#begin('~/.vim/plugged')
+Plug 'lambdalisue/vim-pyenv'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'mileszs/ack.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'chun-yang/auto-pairs'
+Plug 'tpope/vim-surround'
+Plug 'Ma233/Mark--Karkat'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-fugitive'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'chemzqm/wxapp.vim'
+Plug 'dense-analysis/ale'
+call plug#end()
 
 
 " =================================================================
@@ -218,6 +214,9 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+" coc.nvim
+highlight Pmenu ctermbg=darkgrey guibg=darkgrey
+
 " ack.vim
 nmap <C-f> :Ack!<space>
 vmap <C-f> y:Ack!<space><C-r>0
@@ -226,7 +225,7 @@ if executable('ag')
 endif
 
 " fzf.vim
-let g:fzf_layout = { 'down': '~15%' }
+let g:fzf_layout = { 'down': '~25%' }
 nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
@@ -261,11 +260,6 @@ augroup myag
     " vim-pyenv
     autocmd VimEnter * PyenvActivate
 
-    " fzf auto open
-    " TODO: fix filetype lost after execute FZF as expr in autocmd
-    " autocmd StdinReadPre * let s:std_in=1
-    " autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | execute("FZF") | endif
-
     " auto set file head
     autocmd BufNewFile *.sh exec ":call AutoSetFileHead()"
 
@@ -275,8 +269,5 @@ augroup myag
         \ if line("'\"") > 0 && line("'\"") <= line("$") |
         \   exec "normal g`\"" |
         \ endif
-
-    " vim-fugitive
-    autocmd QuickFixCmdPost *grep* cwindow
 
 augroup END
