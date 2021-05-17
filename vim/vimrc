@@ -6,6 +6,7 @@ set nocompatible
 filetype off
 
 call plug#begin('~/.vim/plugged')
+Plug 'NLKNguyen/papercolor-theme'
 Plug 'lambdalisue/vim-pyenv'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -30,6 +31,7 @@ syntax on
 filetype plugin indent on
 
 colorscheme ron
+set background=dark
 set history=2000                  " how many lines of history VIM has to remember
 set autoread                      " auto reload when a file is changed from the outside
 set shortmess=atI                 " make messages shorter. see (:help: shortmess)
@@ -187,6 +189,9 @@ cmap w!! w !sudo tee >/dev/null %
 " ======================== plugin customize =======================
 " =================================================================
 
+" papercolor-theme
+colorscheme PaperColor
+
 " ale
 let g:ale_echo_msg_error_str = 'ERROR'
 let g:ale_echo_msg_warning_str = 'WARN'
@@ -213,9 +218,6 @@ let g:ale_fixers = {
 \   'go': ['gofmt', 'goimports'],
 \}
 let g:ale_fix_on_save = 1
-
-" coc.nvim
-highlight Pmenu ctermbg=darkgrey guibg=darkgrey
 
 " ack.vim
 nmap <C-f> :Ack!<space>
