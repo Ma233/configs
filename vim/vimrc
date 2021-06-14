@@ -12,14 +12,15 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
-Plug 'chun-yang/auto-pairs'
 Plug 'tpope/vim-surround'
 Plug 'Ma233/Mark--Karkat'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-fugitive'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'chemzqm/wxapp.vim'
 Plug 'dense-analysis/ale'
+Plug 'chemzqm/wxapp.vim'
+Plug 'cespare/vim-toml'
+Plug 'rust-lang/rust.vim'
 call plug#end()
 
 
@@ -114,6 +115,7 @@ autocmd FileType nginx setlocal iskeyword-=:
 autocmd FileType yaml setlocal nowrap
 
 autocmd BufRead,BufNewFile *.conf set filetype=conf
+autocmd BufRead,BufNewFile *.envrc set filetype=sh
 autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby
 
 
@@ -201,7 +203,7 @@ nmap <C-k> <Plug>(ale_previous_wrap)
 let g:ale_linters = {
 \   'python': ['mypy', 'flake8'],
 \   'javascript': ['eslint'],
-\   'rust': ['rls'],
+\   'rust': ['analyzer'],
 \   'go': ['gofmt', 'golint', 'govet'],
 \}
 let g:ale_fixers = {
@@ -214,7 +216,6 @@ let g:ale_fixers = {
 \   'wxss': ['prettier'],
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
-\   'rust': ['rustfmt'],
 \   'go': ['gofmt', 'goimports'],
 \}
 let g:ale_fix_on_save = 1
@@ -232,15 +233,9 @@ nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
 
-" auto-pairs
-let g:AutoPairsFlyMode = 0
-let g:AutoPairsShortcutFastWrap = '<C-e>'
-
 " Mark--Karkat
 nmap - <leader>*
 nmap = <leader>#
-" default color Yellow conflicted with search mark
-highlight def MarkWord3 ctermbg=White ctermfg=Black guibg=#FFDB72 guifg=Black
 
 
 " =================================================================
