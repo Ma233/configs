@@ -1,4 +1,6 @@
 {
   "diagnostic.displayByAle": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"]
+  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "coc.preferences.jumpCommand": "tab drop",
+  "go.goplsPath": "gopls"
 }

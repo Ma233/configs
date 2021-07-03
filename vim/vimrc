@@ -13,14 +13,15 @@ Plug 'junegunn/fzf.vim'
 Plug 'mileszs/ack.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'Ma233/Mark--Karkat'
 Plug 'tpope/vim-abolish'
-Plug 'tpope/vim-fugitive'
+Plug 'lfv89/vim-interestingwords'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dense-analysis/ale'
 Plug 'chemzqm/wxapp.vim'
 Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
+Plug 'juvenn/mustache.vim'
+Plug 'towolf/vim-helm'
 call plug#end()
 
 
@@ -220,6 +221,12 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+" coc.nvim
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
 " ack.vim
 nmap <C-f> :Ack!<space>
 vmap <C-f> y:Ack!<space><C-r>0
@@ -233,9 +240,12 @@ nnoremap <C-o> :Files<space>
 nnoremap <C-p> :Files<CR>
 vmap <C-p> y<C-p><C-\>r0<C-a>
 
-" Mark--Karkat
-nmap - <leader>*
-nmap = <leader>#
+" interestingwords
+nnoremap <silent> <leader>m :call InterestingWords('n')<cr>
+vnoremap <silent> <leader>m :call InterestingWords('v')<cr>
+nnoremap <silent> <leader>M :call UncolorAllWords()<cr>
+nnoremap <silent> - :call WordNavigation(1)<cr>
+nnoremap <silent> = :call WordNavigation(0)<cr>
 
 
 " =================================================================
