@@ -22,6 +22,7 @@ Plug 'cespare/vim-toml'
 Plug 'rust-lang/rust.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'towolf/vim-helm'
+Plug 'jparise/vim-graphql'
 call plug#end()
 
 
@@ -164,9 +165,6 @@ vnoremap * y/\<<C-r>0\><CR>
 " copy by gvim
 vnoremap <C-c> "+y
 
-" easier way to jump between window
-nmap <C-w> <C-w>w
-
 " simple mark by M
 nnoremap M mb
 
@@ -202,7 +200,7 @@ let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 nmap <C-j> <Plug>(ale_next_wrap)
 nmap <C-k> <Plug>(ale_previous_wrap)
 let g:ale_linters = {
-\   'python': ['mypy', 'flake8'],
+\   'python': [],
 \   'javascript': ['eslint'],
 \   'rust': ['analyzer'],
 \   'go': ['gofmt', 'golint', 'govet'],

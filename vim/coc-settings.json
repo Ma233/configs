@@ -2,5 +2,12 @@
   "diagnostic.displayByAle": true,
   "coc.preferences.formatOnSaveFiletypes": ["rust"],
   "coc.preferences.jumpCommand": "tab drop",
-  "go.goplsPath": "gopls"
+  "go.goplsPath": "gopls",
+  "languageserver": {
+    "graphql": {
+      "command": "graphql-lsp",
+      "args": ["server", "-m", "stream"],
+      "filetypes": ["graphql"]
+    }
+  }
 }
