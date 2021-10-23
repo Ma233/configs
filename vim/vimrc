@@ -23,6 +23,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'juvenn/mustache.vim'
 Plug 'towolf/vim-helm'
 Plug 'jparise/vim-graphql'
+Plug 'elixir-editors/vim-elixir'
 call plug#end()
 
 
@@ -201,9 +202,10 @@ nmap <C-j> <Plug>(ale_next_wrap)
 nmap <C-k> <Plug>(ale_previous_wrap)
 let g:ale_linters = {
 \   'python': [],
-\   'javascript': ['eslint'],
-\   'rust': ['analyzer'],
-\   'go': ['gofmt', 'golint', 'govet'],
+\   'json': [],
+\   'rust': [],
+\   'go': [],
+\   'proto': ['protolint'],
 \}
 let g:ale_fixers = {
 \   '*':['remove_trailing_lines', 'trim_whitespace'],
@@ -216,20 +218,28 @@ let g:ale_fixers = {
 \   'javascript': ['prettier'],
 \   'typescript': ['prettier'],
 \   'go': ['gofmt', 'goimports'],
+\   'proto': ['protolint'],
+\   'elixir': [],
 \}
 let g:ale_fix_on_save = 1
+let g:ale_disable_lsp = 1
+let g:ale_sign_column_always = 1
 
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+vnoremap <silent> <F10> :<C-u>call CocActionAsync('formatSelected', visualmode())<CR>
+nnoremap <silent> <F10> :<C-u>call CocAction('format')<CR>
 
 " ack.vim
 nmap <C-f> :Ack!<space>
 vmap <C-f> y:Ack!<space><C-r>0
-if executable('ag')
-    let g:ackprg = 'ag --vimgrep'
+let g:ack_autoclose = 1
+let g:ack_use_cword_for_empty_search = 1
+if executable('rg')
+    let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
 endif
 
 " fzf.vim

@@ -1,13 +1,21 @@
 {
   "diagnostic.displayByAle": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust"],
+  "coc.preferences.formatOnSaveFiletypes": ["rust", "elixir"],
   "coc.preferences.jumpCommand": "tab drop",
   "go.goplsPath": "gopls",
+  "rust-analyzer.server.path": "rust-analyzer",
+  "rust-analyzer.checkOnSave.command": "clippy",
+  "elixirLS.dialyzerEnabled": true,
+  "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
   "languageserver": {
     "graphql": {
       "command": "graphql-lsp",
       "args": ["server", "-m", "stream"],
       "filetypes": ["graphql"]
+    },
+    "erlang": {
+      "command": "~/.erlang_ls/_build/default/bin/erlang_ls",
+      "filetypes": ["erlang"]
     }
   }
 }
