@@ -205,6 +205,7 @@ let g:ale_linters = {
 \   'json': [],
 \   'rust': [],
 \   'go': [],
+\   'elixir': ['credo'],
 \   'proto': ['protolint'],
 \}
 let g:ale_fixers = {
@@ -224,6 +225,7 @@ let g:ale_fixers = {
 let g:ale_fix_on_save = 1
 let g:ale_disable_lsp = 1
 let g:ale_sign_column_always = 1
+nnoremap ge :<C-u>ALEDetail<CR>
 
 " coc.nvim
 nmap <silent> gd <Plug>(coc-definition)
