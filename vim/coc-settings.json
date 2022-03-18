@@ -1,11 +1,12 @@
 {
   "diagnostic.displayByAle": true,
-  "coc.preferences.formatOnSaveFiletypes": ["rust", "elixir"],
+  "coc.preferences.formatOnSaveFiletypes": ["rust", "elixir", "toml"],
   "coc.preferences.jumpCommand": "tab drop",
   "go.goplsPath": "gopls",
   "rust-analyzer.server.path": "rust-analyzer",
   "rust-analyzer.checkOnSave.command": "clippy",
-  "elixirLS.dialyzerEnabled": true,
+  // "rust-analyzer.cargo.features": ["wasm"],
+  "elixirLS.dialyzerEnabled": false,
   "elixir.pathToElixirLS": "~/.elixir-ls/release/language_server.sh",
   "languageserver": {
     "graphql": {

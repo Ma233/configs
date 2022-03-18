@@ -8,9 +8,9 @@ filetype off
 call plug#begin('~/.vim/plugged')
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'lambdalisue/vim-pyenv'
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-Plug 'mileszs/ack.vim'
+Plug 'ibhagwan/fzf-lua'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'mrjones2014/dash.nvim', {'do': 'make install'}
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-abolish'
@@ -24,6 +24,7 @@ Plug 'juvenn/mustache.vim'
 Plug 'towolf/vim-helm'
 Plug 'jparise/vim-graphql'
 Plug 'elixir-editors/vim-elixir'
+Plug 'github/copilot.vim'
 call plug#end()
 
 
@@ -224,7 +225,6 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 let g:ale_disable_lsp = 1
-let g:ale_sign_column_always = 1
 nnoremap ge :<C-u>ALEDetail<CR>
 
 " coc.nvim
@@ -235,20 +235,14 @@ nmap <silent> gr <Plug>(coc-references)
 vnoremap <silent> <F10> :<C-u>call CocActionAsync('formatSelected', visualmode())<CR>
 nnoremap <silent> <F10> :<C-u>call CocAction('format')<CR>
 
-" ack.vim
-nmap <C-f> :Ack!<space>
-vmap <C-f> y:Ack!<space><C-r>0
-let g:ack_autoclose = 1
-let g:ack_use_cword_for_empty_search = 1
-if executable('rg')
-    let g:ackprg = 'rg --vimgrep --type-not sql --smart-case'
-endif
+" copilot
+imap <silent><script><expr> <C-i> copilot#Accept("\<CR>")
+let g:copilot_no_tab_map = v:true
 
-" fzf.vim
-let g:fzf_layout = { 'down': '~25%' }
-nnoremap <C-o> :Files<space>
-nnoremap <C-p> :Files<CR>
-vmap <C-p> y<C-p><C-\>r0<C-a>
+" fzf-lua
+nnoremap <C-p> <cmd>lua require('fzf-lua').files()<CR>
+nnoremap <C-f> <cmd>lua require('fzf-lua').grep()<CR>
+vnoremap <C-f> y<cmd>lua require('fzf-lua').grep()<CR><C-r>0<CR>
 
 " Mark--Karkat
 nmap - <leader>*
