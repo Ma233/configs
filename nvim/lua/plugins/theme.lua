@@ -18,10 +18,10 @@ vim.g.dracula_colors = {
     bright_magenta = '#FF92DF',
     bright_cyan = '#A4FFFF',
     bright_white = '#FFFFFF',
-    menu = '#21222C',
-    visual = '#3E4452',
+    menu = '#151515',
+    visual = '#264557',
     gutter_fg = '#4B5263',
-    nontext = '#3B4048',
+    nontext = '#3c348a',
 }
 -- show the '~' characters after the end of buffers
 vim.g.dracula_show_end_of_buffer = true

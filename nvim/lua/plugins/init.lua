@@ -13,6 +13,13 @@ return require('packer').startup(function(use)
     use('kyazdani42/nvim-web-devicons')
 
     use({
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('plugins.colorizer')
+        end,
+    })
+
+    use({
         'Mofiqul/dracula.nvim',
         config = function()
             require('plugins.theme')

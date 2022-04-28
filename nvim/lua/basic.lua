@@ -1,5 +1,6 @@
 -- basic
 vim.o.background = 'dark'
+vim.o.termguicolors = true
 vim.o.history = 2000 -- how many lines of history VIM has to remember
 vim.o.autoread = true -- auto reload when a file is changed from the outside
 vim.o.shortmess = vim.o.shortmess .. 'c' -- make messages shorter. see (:help: shortmess)
