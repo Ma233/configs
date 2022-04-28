@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
             'folke/lsp-colors.nvim',
             'folke/lua-dev.nvim',
             'jose-elias-alvarez/null-ls.nvim',
+            'simrat39/rust-tools.nvim',
         },
         config = function()
             require('plugins.lsp')

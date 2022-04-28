@@ -19,6 +19,23 @@ local settings = {
                 end,
             },
         }),
+        rust_analyzer = require('nvim-lsp-setup.rust-tools').setup({
+            server = {
+                settings = {
+                    ['rust-analyzer'] = {
+                        cargo = {
+                            loadOutDirsFromCheck = true,
+                        },
+                        procMacro = {
+                            enable = true,
+                        },
+                        checkOnSave = {
+                            command = 'clippy',
+                        },
+                    },
+                },
+            },
+        }),
     },
 }
 
