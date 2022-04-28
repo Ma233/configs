@@ -1,8 +1,8 @@
 local utils = require('nvim-lsp-setup.utils')
 
 local mappings = {
-    gd = 'lua require"telescope.builtin".lsp_definitions()',
-    gi = 'lua require"telescope.builtin".lsp_implementations()',
+    gd = 'lua require"telescope.builtin".lsp_definitions({jump_type="tab"})',
+    gi = 'lua require"telescope.builtin".lsp_implementations({jump_type="tab"})',
     gr = 'lua require"telescope.builtin".lsp_references()',
 }
 
@@ -12,6 +12,7 @@ local settings = {
         utils.format_on_save(client)
     end,
     servers = {
+        pyright = {},
         sumneko_lua = require('lua-dev').setup({
             lspconfig = {
                 on_attach = function(client, _)

@@ -26,7 +26,7 @@ vim.o.number = true -- show line numbers
 vim.o.showcmd = true -- display incomplete commands
 
 -- search
-vim.o.hlsearch = true -- highlight searches
+vim.o.hlsearch = false -- highlight searches
 vim.o.incsearch = true -- do incremental searching, search as you type
 vim.o.ignorecase = true -- ignore case when searching
 vim.o.smartcase = true -- no ignorecase if uppercase char present

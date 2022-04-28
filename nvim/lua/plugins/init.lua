@@ -97,8 +97,7 @@ return require('packer').startup(function(use)
 
     use({
         'github/copilot.vim',
-        config = function()
-            require('plugins.copilot')
-        end,
+        setup = require('plugins.copilot').setup,
+        config = require('plugins.copilot').config,
     })
 end)
