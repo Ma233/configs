@@ -49,7 +49,3 @@ map('n', '<F12>', '<cmd>syntax sync minlines=5000<CR>')
 -- save with sudo permission
 map('c', 'ww', 'noautocmd w')
 map('c', 'w!!', 'w !sudo tee >/dev/null %')
-
--- jump diagnostics
-map('n', '<C-j>', '<cmd>lua vim.diagnostic.goto_next()<CR>')
-map('n', '<C-k>', '<cmd>lua vim.diagnostic.goto_prev()<CR>')
