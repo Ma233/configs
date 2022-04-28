@@ -6,6 +6,7 @@ require('nvim-treesitter.configs').setup({
 
     highlight = {
         enable = true,
+        indent = { enable = true },
 
         -- list of language that will be disabled
         -- disable = { 'lua' },

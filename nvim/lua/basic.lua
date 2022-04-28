@@ -65,3 +65,11 @@ vim.cmd([[autocmd FileType yaml setlocal nowrap]])
 vim.cmd([[autocmd BufRead,BufNewFile *.conf set filetype=conf]])
 vim.cmd([[autocmd BufRead,BufNewFile *.envrc set filetype=sh]])
 vim.cmd([[autocmd BufRead,BufNewFile Vagrantfile set filetype=ruby]])
+-- return to last edit position when opening files
+-- if this not work, make sure .viminfo is writable for you
+vim.cmd([[
+autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exec "normal g`\"" |
+    \ endif
+]])
