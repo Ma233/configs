@@ -1,9 +1,9 @@
 local utils = require('nvim-lsp-setup.utils')
 
 local mappings = {
-    gd = 'lua require"telescope.builtin".lsp_definitions({jump_type="tab"})',
-    gi = 'lua require"telescope.builtin".lsp_implementations({jump_type="tab"})',
-    gr = 'lua require"telescope.builtin".lsp_references()',
+    gd = "lua require('fzf-lua').lsp_definitions({jump_type='tab'})",
+    gi = "lua require('fzf-lua').lsp_implementations({jump_type='tab'})",
+    gr = "lua require('fzf-lua').lsp_references()",
     ['<space><space>'] = 'lua vim.lsp.buf.signature_help()',
     ['<space>k'] = 'lua vim.lsp.buf.hover()',
     ['<space>rn'] = 'lua vim.lsp.buf.rename()',

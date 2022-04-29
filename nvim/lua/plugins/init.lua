@@ -61,13 +61,9 @@ return require('packer').startup(function(use)
     })
 
     use({
-        'nvim-telescope/telescope.nvim',
-        requires = {
-            'nvim-telescope/telescope-github.nvim',
-            'nvim-telescope/telescope-packer.nvim',
-        },
+        'ibhagwan/fzf-lua',
         config = function()
-            require('plugins.telescope')
+            require('plugins.fzf')
         end,
     })
 
