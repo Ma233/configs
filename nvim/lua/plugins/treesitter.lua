@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'c', 'lua', 'rust', 'go', 'python' },
+    ensure_installed = { 'c', 'lua', 'rust', 'go', 'python', 'yaml' },
 
     -- List of parsers to ignore installing
     ignore_install = {},

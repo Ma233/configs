@@ -24,6 +24,7 @@ local settings = {
     end,
     servers = {
         pyright = {},
+        yamlls = {},
         sumneko_lua = require('lua-dev').setup({
             lspconfig = {
                 on_attach = function(client, _)
