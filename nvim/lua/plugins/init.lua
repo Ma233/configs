@@ -92,6 +92,8 @@ return require('packer').startup(function(use)
             'folke/lua-dev.nvim',
             'jose-elias-alvarez/null-ls.nvim',
             'simrat39/rust-tools.nvim',
+            'j-hui/fidget.nvim',
+            'p00f/clangd_extensions.nvim',
         },
         config = function()
             require('plugins.lsp')
