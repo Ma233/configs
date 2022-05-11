@@ -106,4 +106,18 @@ return require('packer').startup(function(use)
             require('plugins.copilot')
         end,
     })
+
+    use({
+        'numToStr/Comment.nvim',
+        config = function()
+            require('plugins.comment')
+        end,
+    })
+
+    use({
+        'folke/which-key.nvim',
+        config = function()
+            require('plugins.whichkey')
+        end,
+    })
 end)
