@@ -28,7 +28,13 @@ return require('packer').startup(function(use)
     use({
         'hoob3rt/lualine.nvim',
         config = function()
-            require('plugins.line')
+            require('plugins.lualine')
+        end,
+    })
+    use({
+        'akinsho/bufferline.nvim',
+        config = function()
+            require('plugins.bufferline')
         end,
     })
 
@@ -80,6 +86,12 @@ return require('packer').startup(function(use)
             require('plugins.cmp')
         end,
     })
+    use({
+        'github/copilot.vim',
+        setup = function()
+            require('plugins.copilot')
+        end,
+    })
 
     use({
         'junnplus/nvim-lsp-setup',
@@ -97,13 +109,6 @@ return require('packer').startup(function(use)
         },
         config = function()
             require('plugins.lsp')
-        end,
-    })
-
-    use({
-        'github/copilot.vim',
-        setup = function()
-            require('plugins.copilot')
         end,
     })
 
