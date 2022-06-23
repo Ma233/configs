@@ -27,8 +27,13 @@ local settings = {
         pyright = {},
         yamlls = {},
         eslint = {},
-        tsserver = {},
-        jsonls = {},
+        tsserver = {
+            lspconfig = {
+                on_attach = function(client, _)
+                    utils.disable_formatting(client)
+                end,
+            },
+        },
         bashls = {},
         clangd = require('nvim-lsp-setup.clangd_extensions').setup(),
         sumneko_lua = require('lua-dev').setup({
@@ -44,6 +49,7 @@ local settings = {
                     ['rust-analyzer'] = {
                         cargo = {
                             loadOutDirsFromCheck = true,
+                            -- features = { 'wasm' },
                         },
                         procMacro = {
                             enable = true,
@@ -65,6 +71,10 @@ null_ls.setup({
     sources = {
         null_ls.builtins.formatting.black,
         null_ls.builtins.formatting.reorder_python_imports,
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.taplo,
+        null_ls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
+        null_ls.builtins.formatting.trim_newlines.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.stylua.with({
             extra_args = { '--config-path', vim.fn.expand('~/.config/stylua/stylua.toml', nil, nil) },
         }),
