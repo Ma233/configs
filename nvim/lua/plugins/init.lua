@@ -94,10 +94,11 @@ return require('packer').startup(function(use)
     })
 
     use({
-        'junnplus/nvim-lsp-setup',
+        'junnplus/lsp-setup.nvim',
         requires = {
             'neovim/nvim-lspconfig',
-            'williamboman/nvim-lsp-installer',
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
             'hrsh7th/cmp-nvim-lsp',
             'ray-x/lsp_signature.nvim',
             'folke/lsp-colors.nvim',

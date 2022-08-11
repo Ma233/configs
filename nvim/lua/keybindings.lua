@@ -19,7 +19,7 @@ map('c', '<C-e>', '<End>')
 -- easy tab
 map('n', 'tn', '<cmd>tabnext<CR>')
 map('n', 'tp', '<cmd>tabprevious<CR>')
-map('n', 'to', '<cmd>tabnew<space>')
+map('n', 'to', ':<C-u>tabnew')
 
 -- make Y behave like other capitals
 map('n', 'Y', 'y$')

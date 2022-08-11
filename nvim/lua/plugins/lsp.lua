@@ -1,4 +1,4 @@
-local utils = require('nvim-lsp-setup.utils')
+local utils = require('lsp-setup.utils')
 
 local mappings = {
     gd = "lua require('fzf-lua').lsp_definitions()",
@@ -17,7 +17,7 @@ local mappings = {
     ['<C-k>'] = 'lua vim.diagnostic.goto_prev()',
 }
 
-local settings = {
+require('lsp-setup').setup({
     default_mappings = false,
     mappings = mappings,
     on_attach = function(client, _)
@@ -35,36 +35,26 @@ local settings = {
             },
         },
         bashls = {},
-        clangd = require('nvim-lsp-setup.clangd_extensions').setup(),
-        sumneko_lua = require('lua-dev').setup({
-            lspconfig = {
-                on_attach = function(client, _)
-                    utils.disable_formatting(client)
-                end,
-            },
-        }),
-        rust_analyzer = require('nvim-lsp-setup.rust-tools').setup({
-            server = {
-                settings = {
-                    ['rust-analyzer'] = {
-                        cargo = {
-                            loadOutDirsFromCheck = true,
-                            -- features = { 'wasm' },
-                        },
-                        procMacro = {
-                            enable = true,
-                        },
-                        checkOnSave = {
-                            command = 'clippy',
-                        },
+        clangd = {},
+        sumneko_lua = require('lua-dev').setup(),
+        rust_analyzer = {
+            settings = {
+                ['rust-analyzer'] = {
+                    cargo = {
+                        loadOutDirsFromCheck = true,
+                        -- features = { 'wasm' },
+                    },
+                    procMacro = {
+                        enable = true,
+                    },
+                    checkOnSave = {
+                        command = 'clippy',
                     },
                 },
             },
-        }),
+        },
     },
-}
-
-require('nvim-lsp-setup').setup(settings)
+})
 
 local null_ls = require('null-ls')
 null_ls.setup({
@@ -75,9 +65,6 @@ null_ls.setup({
         null_ls.builtins.formatting.taplo,
         null_ls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.trim_newlines.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
-        null_ls.builtins.formatting.stylua.with({
-            extra_args = { '--config-path', vim.fn.expand('~/.config/stylua/stylua.toml', nil, nil) },
-        }),
     },
     on_attach = function(client)
         utils.format_on_save(client)
