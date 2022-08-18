@@ -65,6 +65,9 @@ null_ls.setup({
         null_ls.builtins.formatting.taplo,
         null_ls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.trim_newlines.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
+        null_ls.builtins.formatting.stylua.with({
+            extra_args = { '--config-path', vim.fn.expand('~/.config/stylua/stylua.toml', nil, nil) },
+        }),
     },
     on_attach = function(client)
         utils.format_on_save(client)
