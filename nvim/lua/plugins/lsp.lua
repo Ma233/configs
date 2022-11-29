@@ -37,12 +37,14 @@ require('lsp-setup').setup({
         bashls = {},
         clangd = {},
         sumneko_lua = require('lua-dev').setup(),
-        rust_analyzer = {
+        ['rust_analyzer@nightly'] = {
             settings = {
                 ['rust-analyzer'] = {
                     cargo = {
                         loadOutDirsFromCheck = true,
+                        -- features = { 'dummy' },
                         -- features = { 'wasm' },
+                        -- features = { 'browser' },
                     },
                     procMacro = {
                         enable = true,
