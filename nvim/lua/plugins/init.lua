@@ -102,7 +102,7 @@ return require('packer').startup(function(use)
             'hrsh7th/cmp-nvim-lsp',
             'ray-x/lsp_signature.nvim',
             'folke/lsp-colors.nvim',
-            'folke/lua-dev.nvim',
+            'folke/neodev.nvim',
             'jose-elias-alvarez/null-ls.nvim',
             'j-hui/fidget.nvim',
             'p00f/clangd_extensions.nvim',

@@ -36,7 +36,7 @@ require('lsp-setup').setup({
         },
         bashls = {},
         clangd = {},
-        sumneko_lua = require('lua-dev').setup(),
+        sumneko_lua = require('neodev').setup(),
         ['rust_analyzer@nightly'] = {
             settings = {
                 ['rust-analyzer'] = {
