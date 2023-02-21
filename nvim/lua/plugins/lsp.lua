@@ -17,6 +17,8 @@ local mappings = {
     ['<C-k>'] = 'lua vim.diagnostic.goto_prev()',
 }
 
+require('neodev').setup()
+
 require('lsp-setup').setup({
     default_mappings = false,
     mappings = mappings,
@@ -35,8 +37,9 @@ require('lsp-setup').setup({
             },
         },
         bashls = {},
-        clangd = {},
-        sumneko_lua = require('neodev').setup(),
+        sumneko_lua = {},
+        -- bufls = {},
+        -- clangd = {},
         ['rust_analyzer@nightly'] = {
             settings = {
                 ['rust-analyzer'] = {
@@ -45,6 +48,9 @@ require('lsp-setup').setup({
                         -- features = { 'dummy' },
                         -- features = { 'wasm' },
                         -- features = { 'browser' },
+                    },
+                    rustfmt = {
+                        extraArgs = { '+nightly' },
                     },
                     procMacro = {
                         enable = true,
@@ -65,6 +71,8 @@ null_ls.setup({
         null_ls.builtins.formatting.reorder_python_imports,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.taplo,
+        null_ls.builtins.formatting.buf,
+        null_ls.builtins.diagnostics.buf,
         null_ls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.trim_newlines.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.stylua.with({
