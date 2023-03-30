@@ -37,7 +37,7 @@ require('lsp-setup').setup({
             },
         },
         bashls = {},
-        sumneko_lua = {},
+        lua_ls = {},
         -- bufls = {},
         -- clangd = {},
         ['rust_analyzer@nightly'] = {
