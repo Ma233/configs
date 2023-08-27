@@ -104,7 +104,7 @@ return require('packer').startup(function(use)
             'folke/lsp-colors.nvim',
             'folke/neodev.nvim',
             'jose-elias-alvarez/null-ls.nvim',
-            'j-hui/fidget.nvim',
+            { 'j-hui/fidget.nvim', tag = 'legacy' },
             'p00f/clangd_extensions.nvim',
         },
         config = function()
