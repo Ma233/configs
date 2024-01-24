@@ -46,9 +46,10 @@ require('lsp-setup').setup({
                 ['rust-analyzer'] = {
                     cargo = {
                         loadOutDirsFromCheck = true,
+                        -- features = { 'ffi' },
                         -- features = { 'dummy' },
                         -- features = { 'wasm' },
-                        -- features = { 'browser' },
+                        features = { 'browser' },
                     },
                     rustfmt = {
                         extraArgs = { '+nightly' },
@@ -72,8 +73,6 @@ null_ls.setup({
         null_ls.builtins.formatting.reorder_python_imports,
         null_ls.builtins.formatting.prettier,
         null_ls.builtins.formatting.taplo,
-        null_ls.builtins.formatting.buf,
-        null_ls.builtins.diagnostics.buf,
         null_ls.builtins.formatting.trim_whitespace.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.trim_newlines.with({ disabled_filetypes = { 'lua', 'python', 'rust' } }),
         null_ls.builtins.formatting.stylua.with({

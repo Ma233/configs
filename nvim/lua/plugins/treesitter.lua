@@ -1,5 +1,5 @@
 require('nvim-treesitter.configs').setup({
-    ensure_installed = { 'c', 'lua', 'rust', 'go', 'python', 'yaml' },
+    ensure_installed = { 'c', 'lua', 'rust', 'go', 'python', 'yaml', 'javascript', 'typescript' },
 
     -- List of parsers to ignore installing
     ignore_install = {},
@@ -21,3 +21,5 @@ require('nvim-treesitter.configs').setup({
         endwise = { enable = true },
     },
 })
+
+require('nvim-treesitter.configs').prefer_git = true
