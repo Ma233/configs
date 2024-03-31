@@ -2,6 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- wrap lines
+vim.opt.wrap = true
+
 -- location cursor
 vim.opt.cursorcolumn = true
 vim.opt.cursorline = true

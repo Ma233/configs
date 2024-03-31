@@ -6,6 +6,7 @@ return {
         cargo = {
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
+          -- features = { "browser_chrome_test" },
           -- features = { "browser" },
           -- features = { 'dummy' },
         },
