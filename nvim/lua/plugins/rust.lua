@@ -8,7 +8,7 @@ return {
           runBuildScripts = true,
           -- features = { "browser_chrome_test" },
           -- features = { "browser" },
-          -- features = { 'dummy' },
+          -- features = { "dummy" },
         },
         rustfmt = {
           extraArgs = { "+nightly" },
