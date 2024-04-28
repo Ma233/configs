@@ -11,12 +11,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     { import = "plugins" },
     { "tpope/vim-abolish" },
-    {
-      "luozhiya/fittencode.nvim",
-      config = function()
-        require("fittencode").setup()
-      end,
-    },
   },
   defaults = {
     -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
