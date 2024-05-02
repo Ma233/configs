@@ -1,8 +1,8 @@
 return {
   {
-    "neovim/nvim-lspconfig",
+    "mrcjkb/rustaceanvim",
     opts = function(_, opts)
-      opts.servers.rust_analyzer.settings["rust-analyzer"] = {
+      opts.server.default_settings["rust-analyzer"] = {
         cargo = {
           loadOutDirsFromCheck = true,
           runBuildScripts = true,
@@ -19,6 +19,11 @@ return {
         },
         procMacro = {
           enable = true,
+          ignored = {
+            ["async-trait"] = { "async_trait" },
+            ["napi-derive"] = { "napi" },
+            ["async-recursion"] = { "async_recursion" },
+          },
         },
       }
       return opts
