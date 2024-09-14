@@ -5,7 +5,7 @@ return {
     "nvim-telescope/telescope.nvim",
     keys = {
       { "<leader><space>", false },
-      { "<C-p>", Util.telescope("files"), desc = "Find Files (root dir)" },
+      { "<C-p>", Util.pick("files"), desc = "Find Files (root dir)" },
     },
     opts = {
       defaults = {

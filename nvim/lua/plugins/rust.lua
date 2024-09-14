@@ -5,7 +5,9 @@ return {
       opts.server.default_settings["rust-analyzer"] = {
         cargo = {
           loadOutDirsFromCheck = true,
-          runBuildScripts = true,
+          runBuildScripts = {
+            enable = true,
+          },
           -- features = { "full" },
           -- features = { "browser_chrome_test" },
           -- features = { "browser" },
