@@ -28,6 +28,9 @@ return {
             ["async-recursion"] = { "async_recursion" },
           },
         },
+        files = {
+          excludeDirs = { "node_modules", "frontend/node_modules" },
+        },
       }
       return opts
     end,
