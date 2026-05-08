@@ -15,18 +15,3 @@ vim.o.scrolloff = 8
 -- remove not using lazyvim default configs
 vim.opt.relativenumber = false
 vim.opt.clipboard = ""
-
--- OSC 52 for remote clipboard support
--- if os.getenv("SSH_TTY") ~= nil then
---   vim.g.clipboard = {
---     name = "OSC 52",
---     copy = {
---       ["+"] = require("vim.ui.clipboard.osc52").copy("+"),
---      ["*"] = require("vim.ui.clipboard.osc52").copy("*"),
---    },
---    paste = {
---      ["+"] = { "true" }, -- Disable to prevent crashes caused by not starting tmux remotely.
---      ["*"] = { "true" }, -- Disable to prevent crashes caused by not starting tmux remotely.
---    },
---  }
--- end
